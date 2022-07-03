@@ -30,7 +30,7 @@ Check out which tools were used to build it:
 
 -BCrypt and Express Sessions for login system. 
 
--TinyMCE for text edition while creating articles.
+-TinyMCE as an advanced text editor for articles creation.
 
 ------
 
