@@ -1,0 +1,33 @@
+<%- include ("../../partials/header.ejs") %>
+
+<%- include ("../../partials/navbar.ejs") %>
+
+
+<div class="container">
+    <div class="card mt-5">
+
+        <div class="card-header">
+            <h3>User registration form</h3>
+        </div>
+        <div class="card-body">
+            <form action="/users/create" method="POST">
+                <p>E-mail</p>
+                <input type="email" class="form-control" name="email" placeholder="email@example.com"><br>
+                <p>Password</p>
+                <input type="password" class="form-control" name="password" placeholder="*********"><br>
+                <p>Retype your password</p>
+                <input type="password" class="form-control" name="retypedPassword" placeholder="*********"><br>
+                
+                <div>
+                    <button type="submit" class="btn btn-primary btn-md btn-block" type="button">Create</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<%- include ("../../partials/footer.ejs") %>

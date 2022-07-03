@@ -1,0 +1,22 @@
+<%- include ("../../partials/header.ejs") %>
+<%- include ("../../partials/navbar.ejs") %>
+
+<body>
+    <div class="container" id="container-categories-registration"> 
+        <div class="card">
+            <div class="card-header">
+                <h2>Create a new category</h2>
+            </div>
+            <div class="card-body">
+                <form class="form-floating" action ="/categories/save" method="POST">
+                    <input type="text" class="form-control" id="floatingInputValue" placeholder="Type the category name" name="title">
+                    <br>
+                    <button type="submit" class="btn btn-outline-secondary">Create</button>
+                </form>
+            </div>         
+        </div>    
+    </div>
+</body>
+
+
+<%- include ("../../partials/footer.ejs") %>

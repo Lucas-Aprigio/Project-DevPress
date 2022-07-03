@@ -1,0 +1,57 @@
+<%- include ("../../partials/header.ejs") %>
+<%- include ("../../partials/navbar.ejs") %>
+
+<body>
+    <div class="container">
+        <hr>
+        <h2>Categories</h2>
+        <hr>
+        <a class="btn btn-success" href="/admin/categories/new"> Create a new category</a>
+        <table class="table table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% categories.forEach(category => { %>
+                    <tr>
+                        <th><%= category.id %></th>
+                        <th><%= category.title %></th>
+                        <th><%= category.slug %></th> 
+                        <th>
+                            <a href="/admin/categories/edit/<%= category.id %>" class="btn btn-warning">Edit</a>         
+                            <form method="POST" action ="/categories/delete" style="display: inline;" onsubmit="deleteCategory(event, this)">
+                                <input type="hidden" value="<%= category.id %>" name="id">
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </th>
+                    </tr>
+
+                <%})%>
+            </tbody>
+
+
+        </table>
+
+
+
+    </div>
+
+</body>
+
+<%- include ("../../partials/footer.ejs") %>
+
+<script>
+    function deleteCategory(event, form){
+        event.preventDefault();
+        var decision=confirm("Are you sure you want to delete this category?");
+        if(decision){
+            form.submit();
+        }
+    }
+
+</script>

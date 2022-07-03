@@ -1,0 +1,49 @@
+<%- include ("../../partials/header.ejs") %>
+<%- include ("../../partials/navbar.ejs") %>
+
+<body>
+    <div class="container" id="container-categories-registration"> 
+        <div class="card">
+            <div class="card-header">
+                <h2>Articles editor</h2>
+            </div>
+            <div class="card-body">
+                <form class="form-floating" action ="/articles/update" method="POST">
+                    <input type="hidden" value="<%= articles.id %>" name="id">
+                    <input type="text" class="form-control" id="floatingInputValue" placeholder="Type the article title" name="title" value="<%-articles.title%>">
+                    <br>
+                    <textarea class="form-control" placeholder="Write down your article here..." name="body" id="article"> <%- articles.body %></textarea>
+                    <br>
+                    <label>Category</label>
+                    <select name="category" class="form-control">
+                        <% categories.forEach((category)=>{ %>
+
+                            <% if (category.id == articles.categoryId) { %>
+                                <option value="<%= category.id %>" selected><%= category.title %></option>
+                            <% } else { %>
+                                <option value="<%= category.id %>"><%= category.title %></option>
+                            <% } %>
+                        <% }) %>
+
+
+                    </select>
+                    <br>
+                    <button type="submit" class="btn btn-outline-secondary">UPDATE</button>
+                </form>
+            </div>         
+        </div>    
+    </div>
+</body>
+
+
+<%- include ("../../partials/footer.ejs") %>
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: "#article",
+        plugins: [
+            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+        ]
+    })
+</script>

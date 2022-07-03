@@ -1,0 +1,23 @@
+<%- include ("../../partials/header.ejs") %>
+<%- include ("../../partials/navbar.ejs") %>
+
+<body>
+    <div class="container" id="container-categories-registration"> 
+        <div class="card">
+            <div class="card-header">
+                <h2>Category edition</h2>
+            </div>
+            <div class="card-body">
+                <form class="form-floating" action ="/categories/update" method="POST">
+                    <input type="text" class="form-control" id="floatingInputValue" value="<%= category.title %>" name="title">
+                    <input type="hidden" value="<%= category.id %>" name="id">
+                    <br>
+                    <button type="submit" class="btn btn-outline-secondary">Update</button>
+                </form>
+            </div>         
+        </div>    
+    </div>
+</body>
+
+
+<%- include ("../../partials/footer.ejs") %>
